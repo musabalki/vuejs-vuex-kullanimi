@@ -1,15 +1,34 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <ComponentA :ad="ad"/>
+  <ComponentC/>
+  <button @click="sayiEkle">
+Ekle
+  </button>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import ComponentA from "./components/ComponentA"
+import ComponentC from "./components/ComponentC"
+import {mapActions} from "vuex"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+ComponentA,ComponentC
+  },
+  data(){
+    return {
+      ad :"MB"
+    }
+  },
+  methods:{
+    ...mapActions(["yeniSayiEkle"]),
+    sayiEkle(){
+      //action dispatch edilir this.$store.dispatch(type,payload)
+      //this.$store.dispatch("yeniSayiEkle",10)
+      this.yeniSayiEkle(20)
+    }
   }
 }
 </script>
