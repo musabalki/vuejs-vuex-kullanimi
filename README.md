@@ -1,2 +1,2 @@
 
-##Vuejs vuex kullanımı
+## Vuejs vuex kullanımı
